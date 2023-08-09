@@ -6,15 +6,16 @@ import TimeComponent from "./TimeComponent";
 function App() {
   const [allowSound, setAllowSound] = useState(true);
 
-  const partOfDay = () => {
+  function partOfDay() {
     const currentTime = new Date();
+    console.log(currentTime.getHours());
     return currentTime.getHours() >= 12 ? "PM" : "AM";
-  };
+  }
 
   const workouts = [
     {
       name: "Full-body workout",
-      numExercises: partOfDay === "AM" ? 9 : 8,
+      numExercises: partOfDay() === "AM" ? 9 : 8,
     },
     {
       name: "Arms + Legs",
@@ -30,7 +31,7 @@ function App() {
     },
     {
       name: "Core only",
-      numExercises: partOfDay === "AM" ? 5 : 4,
+      numExercises: partOfDay() === "AM" ? 5 : 4,
     },
   ];
 
